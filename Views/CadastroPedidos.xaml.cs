@@ -159,6 +159,7 @@ namespace WpfApp1
                 };
 
                 await _context.Pedidos.AddAsync(pedido);
+                txtId.Text = pedido.Id.ToString();
 
                 txtId.Text = pedido.Id.ToString();
                 txtStatus.Text = "Pendente";

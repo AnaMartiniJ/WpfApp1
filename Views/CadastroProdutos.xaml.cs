@@ -68,13 +68,14 @@ namespace WpfApp1
                 }
                 else
                 {
-                    var nova = new ProdutoModel
+                    var novoProduto = new ProdutoModel
                     {
                         Codigo = Convert.ToInt32(txtCodigo.Text),
                         Nome = txtNome.Text.Trim(),
                         Preco = Convert.ToDecimal(txtValor.Text)
                     };
-                    await _context.Produtos.AddAsync(nova);
+                    await _context.Produtos.AddAsync(novoProduto);
+                    txtId.Text = novoProduto.Id.ToString();
                 }
 
                 await AtualizarGridAsync();

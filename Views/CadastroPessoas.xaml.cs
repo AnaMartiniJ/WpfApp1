@@ -91,6 +91,7 @@ namespace WpfApp1
                         Estado = txtEstado.Text.Trim(),
                     };
                     await _context.Pessoas.AddAsync(novaPessoa);
+                    txtId.Text = novaPessoa.Id.ToString();
                 }
 
                 await AtualizarGridAsync();
