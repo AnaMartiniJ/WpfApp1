@@ -24,10 +24,6 @@ namespace WpfApp1
             dtGridPedidos.ItemsSource = _itensView;
 
             this.Loaded += CadastroPedidos_Loaded;
-            btnNovo.Click += btnNovo_Click;
-            btnPesquisar.Click += btnPesquisar_Click;
-            btnExcluir.Click += btnExcluir_Click;
-            btnGravar.Click += btnGravar_Click;
         }
 
         private async void CadastroPedidos_Loaded(object sender, RoutedEventArgs e)
@@ -115,6 +111,12 @@ namespace WpfApp1
 
         private async void btnGravar_Click(object sender, RoutedEventArgs e)
         {
+            if (int.TryParse(txtId.Text, out int id) && id > 0)
+            {
+                MessageBox.Show("Este pedido já foi finalizado e não pode ser alterado.");
+                return;
+            }
+
             var cliente = cbCliente.SelectedItem as PessoaModel;
             if (cliente == null)
             {
